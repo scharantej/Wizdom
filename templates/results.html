@@ -1,0 +1,24 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{ lesson.title }} Quiz Results</title>
+</head>
+<body>
+<h1>{{ lesson.title }} Quiz Results</h1>
+<p>You got {{ correct_answers }} out of {{ quizzes.count() }} correct.</p>
+<ul>
+{% for quiz in quizzes %}
+<li>{{ quiz.question }}
+{% if request.form.get(quiz.id) == quiz.answer %}
+<span>Correct</span>
+{% else %}
+<span>Incorrect</span>
+{% endif %}
+</li>
+{% endfor %}
+</ul>
+</body>
+</html>
+
