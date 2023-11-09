@@ -1,0 +1,24 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{ lesson.title }} Quiz</title>
+</head>
+<body>
+<h1>{{ lesson.title }} Quiz</h1>
+<ul>
+{% for quiz in quizzes %}
+<li>{{ quiz.question }}
+<input type="radio" name="{{ quiz.id }}" value="{{ quiz.answer }}"> {{ quiz.answer }}
+<input type="radio" name="{{ quiz.id }}" value="incorrect"> Incorrect
+</li>
+{% endfor %}
+</ul>
+<form action="{{ url_for('results', lesson_id=lesson.id) }}" method="post">
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+
